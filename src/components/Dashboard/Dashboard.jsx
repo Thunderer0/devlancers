@@ -8,9 +8,21 @@ import DiamondIcon from '@mui/icons-material/Diamond';
 import SpaIcon from '@mui/icons-material/Spa';
 import SchoolIcon from '@mui/icons-material/School';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
+import { useState, useEffect } from 'react';
 
 
-const Dashboard = ({isUser}) =>{
+const Dashboard = ({isUser, account, backend}) =>{
+
+    const [userDetails, setUserDetails] = useState({})
+
+    useEffect(() => {
+        const getUser = async () => {
+            const user = await backend.users(account);
+            setUserDetails(user)
+          }
+          getUser()
+    }, [])
+    
     return(
         <>
         {isUser?<>
@@ -20,14 +32,14 @@ const Dashboard = ({isUser}) =>{
                 <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80" className="profile-container "/>
 
                 <div className="name text-center py-2">
-                    <h6>Neha Deekonda</h6>
-                    <p className="tsecondary">Joined on 17th Feb,2023</p>
+                    <h6>{userDetails.name}</h6>
+                    <p className="tsecondary">Joined on 18th Feb,2023</p>
                 </div>
               </div>
               <div className="left px-3">
-              Email: <p className="tsecondary">nehadeekonda9849@gmail.com</p>
-              Phone : <p className="tsecondary">9182469635</p>
-              Description: <p className="tsecondary"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione doloremque maxime consequatur quas repellendus iure labore voluptatem laudantium at. Quidem iusto quia laboriosam vel, sed rem iure officiis natus amet.</p>
+              Email: <p className="tsecondary">{userDetails.email}</p>
+              Phone : <p className="tsecondary">{userDetails.ph_num}</p>
+              Description: <p className="tsecondary">{userDetails.description}</p>
 
               </div>
             </div>
@@ -49,7 +61,7 @@ const Dashboard = ({isUser}) =>{
            <div className="matter text-center">
             <h5 className='p-1'>Green Credits</h5>
             <p className="text-center tsecondary px-1" style={{fontSize:'50px'}}>
-                1 
+                {userDetails.greenCredit?<>{userDetails.greenCredit.toNumber()}</>:<>0</>}
             <SpaIcon color="primary" sx={{fontSize:'50px'}}/>
 
             </p>
@@ -62,7 +74,7 @@ const Dashboard = ({isUser}) =>{
            <div className="matter text-center">
             <h5 className='p-1'>Blue Credits</h5>
             <p className="text-center tsecondary px-1" style={{fontSize:'50px'}}>
-                1 
+            {userDetails.blueCredit?<>{userDetails.blueCredit.toNumber()}</>:<>0</>}
             <OpacityIcon color="primary" sx={{fontSize:'50px'}}/>
 
             </p>
@@ -74,7 +86,7 @@ const Dashboard = ({isUser}) =>{
            <div className="matter text-center">
             <h5 className='p-1'>Hunger Credits</h5>
             <p className="text-center tsecondary px-1" style={{fontSize:'50px'}}>
-                1 
+            {userDetails.hungerCredit?<>{userDetails.hungerCredit.toNumber()}</>:<>0</>}
             <VolunteerActivismIcon color="primary" sx={{fontSize:'50px'}}/>
 
             </p>
@@ -86,7 +98,9 @@ const Dashboard = ({isUser}) =>{
            <div className="matter text-center">
             <h5 className='p-1'>Pink Credits</h5>
             <p className="text-center tsecondary px-1" style={{fontSize:'50px'}}>
-                1 
+
+            {userDetails.pinkCredit?<>{userDetails.pinkCredit.toNumber()}</>:<>0</>}
+
             <DiamondIcon color="primary" sx={{fontSize:'50px'}}/>
 
             </p>
@@ -98,7 +112,8 @@ const Dashboard = ({isUser}) =>{
            <div className="matter text-center">
             <h5 className='p-1'>Edu Credits</h5>
             <p className="text-center tsecondary px-1" style={{fontSize:'50px'}}>
-                1 
+            {userDetails.eduCredit?<>{userDetails.eduCredit.toNumber()}</>:<>0</>}
+
             <SchoolIcon color="primary" sx={{fontSize:'50px'}}/>
 
             </p>
@@ -109,7 +124,7 @@ const Dashboard = ({isUser}) =>{
             <h5 className='p-1'>Health Credits</h5>
             
             <p className="text-center tsecondary px-1" style={{fontSize:'50px'}}>
-                1 
+            {userDetails.healthCredit?<>{userDetails.healthCredit.toNumber()}</>:<>0</>}
             <HealthAndSafetyIcon color="primary" sx={{fontSize:'50px'}}/>
 
             </p>

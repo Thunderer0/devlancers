@@ -6,19 +6,26 @@ import {ethers } from 'ethers';
 
 
 
-const Registration = ({backend, account}) =>{
+const Registration = ({backend, account, setIsRegistered, setIsUser}) =>{
+  
   useEffect( ()=>{
-    const fun = async () => {
-      const address = backend.signer.getAddress()
-      const user = await backend.getUser(address)
-      // const user1 = await backend.users(account)
-      console.log(user)
-      // console.log(user1)
+    const getUser = async () => {
+
+      try {
+        const user = await backend.users(account);
+        if(user.name!="") {
+          setIsRegistered(true);
+          setIsUser(true);
+
+          
+        }
+      } catch (error) {
+        console.log(error)
+      }
 
     }
-    
-    fun()
-    // setIsRegistered(true)
+    getUser()
+
   },[])
 
   const [userModal,setUserModal] = useState(false)
@@ -39,6 +46,8 @@ const Registration = ({backend, account}) =>{
 
     const res =await backend.createUser(userDetails.name,userDetails.email,userDetails.phone,userDetails.description)
     console.log(res)
+    setIsRegistered(true);
+    setIsUser(true);
   }
     return(
 

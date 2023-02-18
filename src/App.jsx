@@ -97,7 +97,7 @@ function App() {
               <Route
                   path='/'
                   element={
-                   <Registration backend={backend} account={account}/>
+                   <Registration  setIsRegistered = {setIsRegistered} backend={backend} account={account} setIsUser={setIsUser}/>
                   }
                 />
               
@@ -106,7 +106,7 @@ function App() {
                 <Route
                   index
                   element={
-                    <Dashboard isUser={isUser}/>
+                    <Dashboard isUser={isUser} account={account} backend={backend}/>
                   }
                 />
                 <Route

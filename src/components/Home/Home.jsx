@@ -32,11 +32,11 @@ const Home = ({setAccount,setLogin,setProvider,setBackend,isRegistered,setIsRegi
   
     // console.log(backend.createUser)
     setBackend(backend)
-    console.log(backend)
+    // console.log(backend)
     // const address =await backend.signer.getAddress()
     // console.log(address);
-    user = await backend.users(account)
-    console.log(user)
+    // user = await backend.users(account)
+    // console.log(user)
     // setIsRegistered(true)
 
 

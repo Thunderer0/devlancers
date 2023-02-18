@@ -55,7 +55,6 @@ contract CreditFi {
     //     uint greenCredit;
     //     uint blueCredit;
     //     uint eduCredit;
-
     //     uint healthCredit;
     //     uint pinkCredit;
     //     uint hungerCredit;
