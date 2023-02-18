@@ -8,7 +8,7 @@ import CreditFi from '../.././artifacts/contracts/CreditFi.sol/CreditFi.json'
 
 const CREDITFI_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
-const Home = ({setAccount,setLogin,setProvider,setBackend}) => {
+const Home = ({setAccount,setLogin,setProvider,setBackend,isRegistered,setIsRegistered}) => {
   const connect = async () => {
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts'})
     const account = ethers.utils.getAddress(accounts[0])
@@ -31,15 +31,12 @@ const Home = ({setAccount,setLogin,setProvider,setBackend}) => {
     )
 
     setBackend(backend)
-    console.log(backend)
     const user = await backend.users(account)
     console.log(user)
     if(user){
-      console.log('hi')
+      setIsRegistered(true)
     }
-    else{
-      console.log('bye')
-    }
+ 
   }
 
   return (

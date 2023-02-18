@@ -139,7 +139,7 @@ function App() {
                 <Route
                   index
                   element={
-                    <Home setAccount={setAccount} setLogin={setLogin} setProvider={setProvider} setBackend={setBackend}/>
+                    <Home setAccount={setAccount} setLogin={setLogin} setProvider={setProvider} setBackend={setBackend} isRegistered={isRegistered} setIsRegistered={setIsRegistered}/>
                   }
                 />
                 
