@@ -29,8 +29,8 @@ const Home = ({setAccount,setLogin,setProvider,setBackend}) => {
     )
 
     setBackend(backend)
-    
-    console.log(await backend.users(account.address))
+    console.log(account)
+    console.log(await backend.users(account))
   }
 
   return (

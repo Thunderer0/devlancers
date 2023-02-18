@@ -5,7 +5,7 @@ import { useState } from "react";
 
 
 
-const Registration = () =>{
+const Registration = ({backend}) =>{
   const [userModal,setUserModal] = useState(false)
   const [companyModal,setCompanyModal] = useState(false)
   const [userDetails,setUserDetails] = useState({})
@@ -19,6 +19,11 @@ const Registration = () =>{
     const name = event.target.name;
     const value = event.target.value;
     setCompanyDetails(values => ({...values, [name]: value}))
+  }
+  const submitFormUser =  async () => {
+
+    const res =await backend.createUser(userDetails.name,userDetails.email,userDetails.phone,userDetails.description)
+    console.log(res)
   }
     return(
 
@@ -147,9 +152,7 @@ const Registration = () =>{
             Cancel
           </Button>
           <Button
-            onClick={() => {
-              setUserModal(false);
-            }}>
+            onClick={submitFormUser}>
             Create
           </Button>
         </DialogActions>
@@ -228,9 +231,7 @@ const Registration = () =>{
             Cancel
           </Button>
           <Button
-            onClick={() => {
-              setCompanyModal(false);
-            }}>
+            onClick={submitFormUser}>
             Create
           </Button>
         </DialogActions>

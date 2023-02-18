@@ -50,8 +50,8 @@ const Activities = () => {
         </Box>
         <TabPanel value={value} index={0}>
           <div className="container">
-            <div className="">
-              <div className="activity-card bgsecondary rounded p-3 mx-5 my-3">
+            <div className="px-5">
+              <div className="activity-card bgsecondary rounded p-3 my-3">
                 <div className="top">
                   <Avatar>N</Avatar>
                   <div className="p-2">
@@ -99,7 +99,7 @@ const Activities = () => {
                 </div>
 
               </div>
-              <div className="activity-card bgsecondary rounded p-3 mx-5 my-3">
+              <div className="activity-card bgsecondary rounded p-3 my-3">
                 <div className="top">
                   <Avatar>N</Avatar>
                   <div className="p-2">
