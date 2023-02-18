@@ -99,6 +99,15 @@ contract CreditFi {
         return true;
     }
 
+    // function getUser(address _userAddress) public view returns(User memory) {
+    //     if (users[_userAddress].exists) {
+    //         return users[_userAddress];
+    //     } 
+    //     else {
+    //         return User(0, "", false);
+    //     }
+    // }
+
 
     function createActivity(string memory _title, string[] memory _fileHashes, string memory _description, uint8 _category)  public returns (bool) {
         require(bytes(_title).length >0);
