@@ -24,7 +24,7 @@ function App() {
   const [provider, setProvider] = useState(null)
   const [service, setService] = useState(null)
   const [login,setLogin] = useState(true)
-  const [isUser,setIsUser] = useState(false)
+  const [isUser,setIsUser] = useState(true)
   const [isRegistered,setIsRegistered] = useState(false)
   const theme = createTheme({
     palette: {

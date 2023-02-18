@@ -8,10 +8,15 @@
 .role-card{
     height: 400px;
     width: 300px;
+    cursor: pointer;
+}
+.role-card:hover{
+    border: 2px solid var(--primary);
 }
 .role-image{
-    width: 200px;
-    height: 200px;
-    border: 100%;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
     object-fit: cover;
+    /* border: 1px solid red; */
 }
