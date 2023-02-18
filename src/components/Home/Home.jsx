@@ -20,18 +20,20 @@ const Home = ({setAccount,setLogin,setProvider,setBackend}) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     setProvider(provider)
 
+    const signer = provider.getSigner();
+
     // const network = await provider.getNetwork() 
 
     const backend = new ethers.Contract(
       CREDITFI_ADDRESS,
       CreditFi.abi,
-      provider
+      signer
     )
 
     setBackend(backend)
-    console.log(account)
-    console.log(await backend.users(account))
-    
+    console.log(backend)
+    const user = await backend.users(account)
+    console.log(user)
   }
 
   return (
