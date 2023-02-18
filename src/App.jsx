@@ -17,14 +17,13 @@ import CreditFi from './artifacts/contracts/CreditFi.sol/CreditFi.json'
 const SERVICE_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
 
-
 function App() {
 
   const [account, setAccount ] = useState(null) 
   const [provider, setProvider] = useState(null)
-  const [service, setService] = useState(null)
+  const [backend, setBackend] = useState(null)
   const [login,setLogin] = useState(false)
-  const [isUser,setIsUser] = useState(true)
+  const [isUser,setIsUser] = useState(false)
   const [isRegistered,setIsRegistered] = useState(false)
   const theme = createTheme({
     palette: {
@@ -140,7 +139,7 @@ function App() {
                 <Route
                   index
                   element={
-                    <Home/>
+                    <Home setAccount={setAccount} setLogin={setLogin} setProvider={setProvider} setBackend={setBackend}/>
                   }
                 />
                 
