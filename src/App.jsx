@@ -22,9 +22,9 @@ function App() {
   const [account, setAccount ] = useState(null) 
   const [provider, setProvider] = useState(null)
   const [backend, setBackend] = useState(null)
-  const [login,setLogin] = useState(false)
-  const [isUser,setIsUser] = useState(false)
-  const [isRegistered,setIsRegistered] = useState(false)
+  const [login,setLogin] = useState(true)
+  const [isUser,setIsUser] = useState(true)
+  const [isRegistered,setIsRegistered] = useState(true)
   const theme = createTheme({
     palette: {
       mode: 'dark',
