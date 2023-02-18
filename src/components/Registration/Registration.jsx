@@ -45,17 +45,17 @@ const Registration = () =>{
                  <div className="imgContainer p-3">
                      <img src="https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg?w=2000" alt="" className="role-image"/>
                  </div>
-                <p className="tsecondary text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque vitae ipsum odio harum aliquid, dolore id quos quo aspernatur odit hic necessitatibus quod corporis. </p>
+                <p className="tsecondary text-center">Users will be able to post their social activities and can earn credits as incentives for their work towards healthy society and environment </p>
             </div>
           
             
             <div className="company role-card bgprimary m-2 rounded p-3 d-flex align-items-center flex-column"
             onClick={()=>{setCompanyModal(true)}}>
-            <h4 className="text-center m-2 tsecondary">Company</h4>
+            <h4 className="text-center m-2 tsecondary">Organization</h4>
             <div className="imgContainer p-3">
             <img src="https://as2.ftcdn.net/v2/jpg/02/60/12/11/1000_F_260121137_3To0EdxvWR3f5IqiwqkmGvHN9MSOM4HG.jpg" alt="" className="role-image"/>
             </div>
-            <p className="tsecondary text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque vitae ipsum odio harum aliquid, dolore id quos quo aspernatur odit hic necessitatibus quod corporis. </p>
+            <p className="tsecondary text-center">Organizations will be able to buy credits using cryptocurrency.  </p>
 
 
             </div>
