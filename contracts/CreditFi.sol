@@ -62,8 +62,8 @@ contract CreditFi {
         string[] fileHashes;
         string description;
         CreditCategory category;
-        uint upvote;
-        uint downvote;
+        uint upvotes;
+        uint downvotes;
         uint raisedAmount;
     }
 
