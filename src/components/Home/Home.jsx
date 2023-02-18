@@ -34,6 +34,12 @@ const Home = ({setAccount,setLogin,setProvider,setBackend}) => {
     console.log(backend)
     const user = await backend.users(account)
     console.log(user)
+    if(user){
+      console.log('hi')
+    }
+    else{
+      console.log('bye')
+    }
   }
 
   return (
