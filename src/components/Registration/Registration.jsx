@@ -37,7 +37,7 @@ const Registration = () =>{
       </AppBar>
       <div className="container mt-5 pt-5 registerContainer">
         <div className="center-card bgsecondary rounded p-3">
-         <h4 className="text-center">Choose a role</h4>
+         <h4 className="text-center p-2">Choose a role</h4>
          <div className="d-flex">
           
           <div className="user role-card bgprimary m-2 rounded p-3 d-flex align-items-center flex-column" onClick={()=>{setUserModal(true)}}>
@@ -223,13 +223,13 @@ const Registration = () =>{
         <DialogActions>
           <Button
             onClick={() => {
-              setUserModal(false);
+              setCompanyModal(false);
             }}>
             Cancel
           </Button>
           <Button
             onClick={() => {
-              setUserModal(false);
+              setCompanyModal(false);
             }}>
             Create
           </Button>
