@@ -6,7 +6,8 @@ import { Box } from "@mui/system";
 import {ethers} from 'ethers';
 import CreditFi from '../.././artifacts/contracts/CreditFi.sol/CreditFi.json'
 
-const CREDITFI_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+const CREDITFI_ADDRESS = "0x56Fd5C5f08F7E1a93C364a0D30Dc4dE78b6A882a";
+let user;
 
 const Home = ({setAccount,setLogin,setProvider,setBackend,isRegistered,setIsRegistered}) => {
   const connect = async () => {
@@ -14,7 +15,6 @@ const Home = ({setAccount,setLogin,setProvider,setBackend,isRegistered,setIsRegi
     const account = ethers.utils.getAddress(accounts[0])
     setAccount(account)
     setLogin(true)
-
 
     //connect to blockchain
     const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -29,13 +29,17 @@ const Home = ({setAccount,setLogin,setProvider,setBackend,isRegistered,setIsRegi
       CreditFi.abi,
       signer
     )
-
+  
+    // console.log(backend.createUser)
     setBackend(backend)
-    const user = await backend.users(account)
+    console.log(backend)
+    // const address =await backend.signer.getAddress()
+    // console.log(address);
+    user = await backend.users(account)
     console.log(user)
-    if(user){
-      setIsRegistered(true)
-    }
+    // setIsRegistered(true)
+
+
  
   }
 
