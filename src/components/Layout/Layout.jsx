@@ -120,16 +120,7 @@ function Layout(props) {
             </ListItemButton>
           </ListItem>
         </Link>
-        <Link to="/money_budget_tracking_app/splits">
-          <ListItem key="5" disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <PaidIcon />
-              </ListItemIcon>
-              <ListItemText primary={"Splits"} />
-            </ListItemButton>
-          </ListItem>
-        </Link>
+       
       </List>
       <List>
         {/* <ListItem key="6" disablePadding>

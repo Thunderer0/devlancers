@@ -6,8 +6,8 @@ import { Box } from "@mui/system";
 import {ethers} from 'ethers';
 import CreditFi from '../.././artifacts/contracts/CreditFi.sol/CreditFi.json'
 
-const CREDITFI_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
-
+// const CREDITFI_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+const CREDITFI_ADDRESS = "0xe9C00c845C29E97EB9F50F7530F62d297a9CA0c6"
 const Home = ({setAccount,setLogin,setProvider,setBackend,isRegistered,setIsRegistered}) => {
   const connect = async () => {
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts'})
