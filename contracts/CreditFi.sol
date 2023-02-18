@@ -23,7 +23,7 @@ contract CreditFi {
 
 
     mapping (address => User) public users;
-    mapping(address => bool) private userExists;
+    // mapping(address => bool) private userExists;
     mapping (address => Organization) public organizations;
 
 
@@ -93,13 +93,13 @@ contract CreditFi {
     }
 
     
-    function getUser(address userAddress) public view returns (User memory) {
-    if (userExists[userAddress]) {
-        return users[userAddress];
-    } else {
-        return User("", "", "", "", 0, 0, 0, 0, 0, 0, 0);
-    }
-    }
+    // function getUser(address userAddress) public view returns (User memory) {
+    // if (userExists[userAddress]) {
+    //     return users[userAddress];
+    // } else {
+    //     return User("", "", "", "", 0, 0, 0, 0, 0, 0, 0);
+    // }
+    // }
 
     function createOrganization(string memory name, string memory email, string memory ph_num) public returns (bool) {
         require(bytes(name).length >0);
