@@ -7,13 +7,13 @@ const tokens = (n) => {
 }
 
 
-describe("Service", () => {
+describe("CreditFi", () => {
     let service;
 
     beforeEach( async() => {
         [owner, worker, customer] = await ethers.getSigners()
         
-        const Service = await ethers.getContractFactory("Service")
+        const Service = await ethers.getContractFactory("CreditFi")
         service = await Service.deploy();
 
     })
@@ -25,4 +25,16 @@ describe("Service", () => {
             expect(_owner).to.equal(owner.address);
         } )
     })
+
+    describe('testing user', () => {
+
+        it('checks for user', async () => {
+            const user = await service.connect(owner).createUser("name", "name", "name", "name");
+            await user.wait()
+            console.log(user)
+            // expect(user.name).to.equal("name");
+        } )
+    })
+
+
 })

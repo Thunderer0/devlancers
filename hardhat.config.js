@@ -5,19 +5,33 @@
 //   paths: {
 //     artifacts: "./src/artifacts",
 //   },
-//   solidity: "0.8.17",
+//   solidity: "0.8.0",
 // };
-// https://eth-goerli.alchemyapi.io/v2/u0eY6Jrn7GeGV1gMhJMc4QCKohvwZG1T
 
-require("@nomiclabs/hardhat-waffle");
+
+
+require('dotenv').config();
+require("@nomiclabs/hardhat-ethers");
+require("@nomiclabs/hardhat-etherscan");
+
 module.exports = {
-  solidity: "0.8.9",
+  defaultNetwork: "mumbai",
   networks: {
-    ropsten: {
-      url: "https://eth-goerli.alchemyapi.io/v2/u0eY6Jrn7GeGV1gMhJMc4QCKohvwZG1T",
-      accounts: [
-        "7d9b4f759b24688c93e1faad33f87fc3a5f829aafc5d80a3bd98b16c0db604dc",
-      ],
+    hardhat: {  
     },
+    mumbai: {
+      url: "https://rpc-mumbai.maticvigil.com",
+      accounts: [`0x${process.env.PRIVATE_KEY}`]
+    }
   },
-};
+  
+  solidity: {
+    version: "0.8.9",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200
+      }
+    }
+  },
+}

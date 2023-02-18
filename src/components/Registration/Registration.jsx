@@ -1,11 +1,26 @@
 import { AppBar, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextareaAutosize, TextField, Toolbar, Typography } from "@mui/material"
 import PaidIcon from "@mui/icons-material/Paid";
 import './register.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import {ethers } from 'ethers';
 
 
 
-const Registration = ({backend}) =>{
+const Registration = ({backend, account}) =>{
+  useEffect( ()=>{
+    const fun = async () => {
+      const address = backend.signer.getAddress()
+      const user = await backend.getUser(address)
+      // const user1 = await backend.users(account)
+      console.log(user)
+      // console.log(user1)
+
+    }
+    
+    fun()
+    // setIsRegistered(true)
+  },[])
+
   const [userModal,setUserModal] = useState(false)
   const [companyModal,setCompanyModal] = useState(false)
   const [userDetails,setUserDetails] = useState({})
