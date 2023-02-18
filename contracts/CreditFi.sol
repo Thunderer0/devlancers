@@ -23,6 +23,7 @@ contract CreditFi {
 
 
     mapping (address => User) public users;
+    mapping(address => bool) private userExists;
     mapping (address => Organization) public organizations;
 
 
@@ -45,6 +46,7 @@ contract CreditFi {
         uint hungerCredit;
         uint activityCount;
     }
+    
 
 
     struct  Organization {
@@ -90,6 +92,15 @@ contract CreditFi {
         return true;
     }
 
+    
+    function getUser(address userAddress) public view returns (User memory) {
+    if (userExists[userAddress]) {
+        return users[userAddress];
+    } else {
+        return User("", "", "", "", 0, 0, 0, 0, 0, 0, 0);
+    }
+    }
+
     function createOrganization(string memory name, string memory email, string memory ph_num) public returns (bool) {
         require(bytes(name).length >0);
         require(bytes(email).length >0);
@@ -99,14 +110,6 @@ contract CreditFi {
         return true;
     }
 
-    // function getUser(address _userAddress) public view returns(User memory) {
-    //     if (users[_userAddress].exists) {
-    //         return users[_userAddress];
-    //     } 
-    //     else {
-    //         return User(0, "", false);
-    //     }
-    // }
 
 
     function createActivity(string memory _title, string[] memory _fileHashes, string memory _description, uint8 _category)  public returns (bool) {
@@ -120,6 +123,7 @@ contract CreditFi {
             fileHashes: _fileHashes,
             description: _description,
             category: _creditCategory,
+            status: ActivityStatus.unverified,
             upvotes : 0,
             downvotes : 0,
             raisedAmount : 0
