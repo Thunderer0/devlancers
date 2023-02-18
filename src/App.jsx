@@ -97,7 +97,7 @@ function App() {
               <Route
                   path='/'
                   element={
-                   <Registration/>
+                   <Registration backend={backend}/>
                   }
                 />
               
