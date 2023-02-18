@@ -33,7 +33,6 @@ const Home = ({setAccount,setLogin,setProvider,setBackend}) => {
     setBackend(backend)
     console.log(backend)
     const user = await backend.users(account)
-    
     console.log(user)
   }
 
