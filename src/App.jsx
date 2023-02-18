@@ -12,9 +12,9 @@ import Activities from './components/Activities/Activities'
 import Registration from "./components/Registration/Registration";
 
 
-// import Service from './artifacts/contracts/Service.sol/Service.json'
+import CreditFi from './artifacts/contracts/CreditFi.sol/CreditFi.json'
 
-// const SERVICE_ADDRESS = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
+const SERVICE_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
 
 
@@ -54,9 +54,9 @@ function App() {
 
 
 
-  // const tokens = (n) => {
-  //   return ethers.utils.parseUnits(n.toString(), 'ether')
-  // }
+  const tokens = (n) => {
+    return ethers.utils.parseUnits(n.toString(), 'ether')
+  }
 
   // const loadBlockchainData = async () => {
   //   const accounts = await window.ethereum.request({ method: 'eth_requestAccounts'})

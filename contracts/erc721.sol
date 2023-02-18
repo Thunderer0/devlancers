@@ -32,7 +32,7 @@ contract CredToken {
     mapping(address => uint) public balanceOf;
     mapping(address => mapping(address => uint)) public allowance;
 
-    constructor(uint _initialSupply) public {
+    constructor(uint _initialSupply)  {
         balanceOf[msg.sender] = _initialSupply;
         totalSupply = _initialSupply;
     }

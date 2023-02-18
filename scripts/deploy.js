@@ -16,11 +16,11 @@ async function main() {
   const [deployer] = await ethers.getSigners()
 
 
-  const Service = await hre.ethers.getContractFactory("Service")
-  const service = await Service.deploy();
-  await service.deployed()
+  const CreditFi = await hre.ethers.getContractFactory("CreditFi")
+  const creditFi = await CreditFi.deploy();
+  await creditFi.deployed();
 
-  console.log(`Deployed Contract at: ${service.address}`)
+  console.log(`Deployed Contract at: ${creditFi.address}`)
   
 }
 
