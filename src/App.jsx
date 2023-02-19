@@ -118,7 +118,7 @@ function App() {
                  <Route
                   path='/activities'
                   element={
-                    <Activities backend={backend} />
+                    <Activities backend={backend} isUser={isUser}/>
                   }
                 />
                 

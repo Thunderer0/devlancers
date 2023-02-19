@@ -25,8 +25,24 @@ const Registration = ({backend, account, setIsRegistered, setIsUser}) =>{
       }
 
     }
-    getUser()
+    const getCompany = async () => {
 
+      try {
+        const company = await backend.organizations(account);
+        if(company.name!="") {
+          setIsRegistered(true);
+          // setIsUser(true);
+          console.log(company)
+
+          
+        }
+      } catch (error) {
+        console.log(error)
+      }
+
+    }
+    getUser()
+    getCompany()
   },[])
 
   const [userModal,setUserModal] = useState(false)
@@ -49,6 +65,14 @@ const Registration = ({backend, account, setIsRegistered, setIsUser}) =>{
     console.log(res)
     setIsRegistered(true);
     setIsUser(true);
+  }
+
+  const submitFormCompany =  async () => {
+
+    const res =await backend.createOrganization(companyDetails.name,companyDetails.email,companyDetails.phone)
+    console.log(res)
+    setIsRegistered(true);
+    // setIsUser
   }
     return(
 
@@ -256,7 +280,7 @@ const Registration = ({backend, account, setIsRegistered, setIsUser}) =>{
             Cancel
           </Button>
           <Button
-            onClick={submitFormUser}>
+            onClick={submitFormCompany}>
             Create
           </Button>
         </DialogActions>

@@ -1,16 +1,19 @@
-import { Avatar, Box, Button, ButtonGroup, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Tab, Tabs, TextField, Typography } from "@mui/material";
+import { Avatar, Box, Button, ButtonGroup, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, InputLabel, MenuItem, Select, Tab, Tabs, TextField, Typography } from "@mui/material";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import React, { useEffect, useState } from "react";
 import "./Activities.css";
-const Activities = ({ backend }) => {
+const Activities = ({ backend,isUser}) => {
   const [value, setValue] = React.useState(0);
   const [activities, setActivities] = useState([]);
   const [users, setUsers] = useState([]);
   const [creditCount, setCreditCount] = useState(0);
   const [open, setOpen] = useState(false);
   const [id,setId] = useState({});
-  
+  const [buyModal,setBuyModal]= useState(false)
+  const [ether,setEther] = useState(0)
+  const [maximum,setMaximum] = useState(0);
+  const [activityId,setActivityId] = useState();
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -25,6 +28,11 @@ const Activities = ({ backend }) => {
 
     getAllActivities();
   }, [])
+  const FormBuySubmit = async ()=>{
+    const res = await backend.buyCredits(activityId,ether)
+
+    console.log(res)
+  }
   const upVote = async (id) => {
     console.log(await backend.upVote(id, creditCount))
   }
@@ -180,6 +188,7 @@ const Activities = ({ backend }) => {
                     </div>
                     <p className="tsecondary px-5 py-1">{e.description}</p>
                     <div className="votes px-3 d-flex justify-content-end">
+                      {!isUser?<><Button onClick={()=>{setBuyModal(true);setMaximum(e.fixedCredits);setActivityId(e.activityId)}}>Buy Credits</Button></>:<></>}
                     {/* <ButtonGroup variant="contained" aria-label="outlined button group">
                             <Button startIcon={<ThumbUpIcon/>}>Upvote</Button>
                             <Button startIcon={<ThumbDownIcon/>}>Downvote</Button>
@@ -225,6 +234,62 @@ const Activities = ({ backend }) => {
         </DialogActions>
       </Dialog>
 
+      {/* buy modal */}
+      <Dialog
+        open={buyModal}
+        onClose={() => {
+          setBuyModal(false);
+        }}
+        scroll="paper"
+        aria-labelledby="scroll-dialog-title"
+        aria-describedby="scroll-dialog-description"
+        maxWidth="md">
+        <DialogTitle id="scroll-dialog-title">
+          Buy Credits
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="scroll-dialog-description" tabIndex={-1}>
+            <div className="py-2">
+            <TextField
+              id="filled-basic"
+              label="Enter number of credits you want to buy"
+              variant="filled"
+              fullWidth
+              sx={{width:'800px'}}
+              name="amount"
+              type="number"
+              InputProps={{
+                inputProps: { 
+                    max: maximum, min: 0
+                }
+            }}
+              value={ether}
+              onChange={(e)=>{setEther(e.target.value)}}
+            />
+            </div>
+            <p className="tsecondary">
+            You have to spend {ether*0.0005} ether
+            </p>
+           
+            
+           
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            onClick={() => {
+              setBuyModal(false);
+            }}>
+            Cancel
+          </Button>
+          <Button
+            onClick={() => {
+              FormBuySubmit()
+            }}>
+            Buy
+          </Button>
+        </DialogActions>
+      </Dialog>
     
 
     </>

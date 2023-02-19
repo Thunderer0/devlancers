@@ -26,7 +26,6 @@ contract CreditFi {
 
 
     mapping (address => User) public users;
-    // // mapping(address => bool) private userExists;
     mapping (address => Organization) public organizations;
 
 
@@ -185,6 +184,57 @@ contract CreditFi {
                 activities[_activityId].status = ActivityStatus.unverified;
             }
         }
+        return true;
+    }
+
+    function buyCredits(uint _activityId, uint _credits) payable public returns (bool) {
+        require(activities[_activityId].status == ActivityStatus.verified);
+        
+        User storage user = users[activities[_activityId].user];
+        if(activities[_activityId].category == CreditCategory.greenCredit) {
+            user.greenCredit -= _credits;
+        }
+        else if(activities[_activityId].category == CreditCategory.blueCredit) {
+            user.blueCredit -= _credits;
+        }
+        else if(activities[_activityId].category == CreditCategory.eduCredit) {
+            user.eduCredit -= _credits;
+        }
+        else if(activities[_activityId].category == CreditCategory.healthCredit) {
+            user.healthCredit -= _credits;
+        }
+        else if(activities[_activityId].category == CreditCategory.pinkCredit) {
+            user.pinkCredit -= _credits;
+        }
+        else if(activities[_activityId].category == CreditCategory.hungerCredit) {
+            user.hungerCredit -= _credits;
+        }
+
+        //org increase
+        Organization storage organization = organizations[msg.sender];
+
+        if(activities[_activityId].category == CreditCategory.greenCredit) {
+            organization.greenCredit += _credits;
+        }
+        else if(activities[_activityId].category == CreditCategory.blueCredit) {
+            organization.blueCredit += _credits;
+        }
+        else if(activities[_activityId].category == CreditCategory.eduCredit) {
+            organization.eduCredit += _credits;
+        }
+        else if(activities[_activityId].category == CreditCategory.healthCredit) {
+            organization.healthCredit += _credits;
+        }
+        else if(activities[_activityId].category == CreditCategory.pinkCredit) {
+            organization.pinkCredit += _credits;
+        }
+        else if(activities[_activityId].category == CreditCategory.hungerCredit) {
+            organization.hungerCredit += _credits;
+        }
+
+        //money transfer
+        address payable receiver = payable(activities[_activityId].user);
+        receiver.transfer(msg.value);
         return true;
     }
 
