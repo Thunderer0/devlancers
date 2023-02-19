@@ -107,8 +107,8 @@ function App() {
                 {!isRegistered ? (
                   <>
                     <Route
-                      // path="/"
-                      path="/register"
+                      path="/"
+                      // path="/register"
                       element={
                         <Registration
                           setIsRegistered={setIsRegistered}
