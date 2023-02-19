@@ -301,7 +301,9 @@ const Activities = ({ backend,isUser}) => {
           </Button>
           <Button
             onClick={() => {
+              setBuyModal(false)
               FormBuySubmit()
+              
             }}>
             Buy
           </Button>
