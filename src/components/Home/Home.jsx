@@ -5,6 +5,10 @@ import PaidIcon from "@mui/icons-material/Paid";
 import { Box } from "@mui/system";
 import {ethers} from 'ethers';
 import CreditFi from '../.././artifacts/contracts/CreditFi.sol/CreditFi.json'
+import PixRoundedIcon from "@mui/icons-material/PixRounded"
+import banner from '../../images/6583.jpg'
+import bgImg from '../../images/cleaning_crew_of_plastic_in_the_beach.jpg'
+
 
 let user;
 
@@ -25,15 +29,15 @@ const Home = ({setAccount,setLogin,setProvider,setBackend,isRegistered,setIsRegi
 
   return (
     <>
-
+    <div >
     <Box sx={{backgroundColor:'var(--secondary)',minHeight:'100vh'}}>
     <AppBar
         position="fixed"
        >
         <Toolbar sx={{ backgroundColor: "var(--primary)" }}>
-          <PaidIcon sx={{ m: 1 }} fontSize="large" />
+          <PixRoundedIcon sx={{ m: 1 }} fontSize="large" />
           <Typography variant="h6" component="div"  sx={{ flexGrow: 1 }}>
-            Devlancers
+            xChange
           </Typography> 
           
 
@@ -42,11 +46,19 @@ const Home = ({setAccount,setLogin,setProvider,setBackend,isRegistered,setIsRegi
 
         </Toolbar>
       </AppBar>
-      <div className="container mt-5 pt-5">
-        homepage
-        Sign up
+      <div className="container mt-5 pt-5 w-100 d-flex  align-items-center " style={{minHeight:'85vh',backgroundImage:bgImg}}>
+        <div className="w-50">
+        <h1 style={{ fontSize:'60px'}}>Invest in Future, </h1>
+        <h1 style={{ fontSize:'60px'}}>let it be time or money. </h1>
+        </div>
+        <div className="img">
+            <img src={banner} alt="" style={{width:'600px',height:'400px'}}/>
+        </div>
+      
       </div>
     </Box>
+    </div>
+   
       
     </>
   );
