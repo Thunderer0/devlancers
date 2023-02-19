@@ -2,6 +2,7 @@ import { Avatar, Box, Button, ButtonGroup, Dialog, DialogActions, DialogContent,
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import React, { useEffect, useState } from "react";
+import { ethers } from "ethers";
 import "./Activities.css";
 const Activities = ({ backend,isUser}) => {
   const [value, setValue] = React.useState(0);
@@ -29,8 +30,7 @@ const Activities = ({ backend,isUser}) => {
     getAllActivities();
   }, [])
   const FormBuySubmit = async ()=>{
-    const res = await backend.buyCredits(activityId,ether)
-
+    const res = await backend.buyCredits(activityId,ether, {value: ethers.utils.parseUnits((ether*0.005).toString(), 18)});
     console.log(res)
   }
   const upVote = async (id) => {
