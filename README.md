@@ -1,13 +1,17 @@
-# Sample Hardhat Project
+# Xchange
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+This website is a platform that allows individuals to participate in social activities and earn social credits, which they can then sell to companies looking to fulfill their Corporate Social Responsibility (CSR) goals. The social credits are earned by participating in activities that promote social impact in various areas such as education, health, hunger, environment, and more. The website verifies user participation in these activities and awards the appropriate amount of social credits, which can be sold on the platform in the form of Ethereum cryptocurrency. By participating in this platform, individuals can make a positive impact on their communities while companies can fulfill their CSR goals in a transparent and meaningful way.
 
-Try running some of the following tasks:
+For running this in your local machine follow following rules
 
+For **Frontend
 ```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
+npm install
+npm run dev
+```
+For Blockchain
+```shell
+npx hardhat compile
 npx hardhat run scripts/deploy.js
+npx hardhat node
 ```
