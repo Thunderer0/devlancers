@@ -8,42 +8,42 @@ import {ethers } from 'ethers';
 
 const Registration = ({backend, account, setIsRegistered, setIsUser}) =>{
   
-  useEffect( ()=>{
-    const getUser = async () => {
+  // useEffect( ()=>{
+  //   const getUser = async () => {
 
-      try {
-        const user = await backend.users(account);
-        if(user.name!="") {
-          setIsRegistered(true);
-          setIsUser(true);
-          console.log(user)
-
-          
-        }
-      } catch (error) {
-        console.log(error)
-      }
-
-    }
-    const getCompany = async () => {
-
-      try {
-        const company = await backend.organizations(account);
-        if(company.name!="") {
-          setIsRegistered(true);
-          // setIsUser(true);
-          console.log(company)
+  //     try {
+  //       const user = await backend.users(account);
+  //       if(user.name!="") {
+  //         setIsRegistered(true);
+  //         setIsUser(true);
+  //         console.log(user)
 
           
-        }
-      } catch (error) {
-        console.log(error)
-      }
+  //       }
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
 
-    }
-    getUser()
-    getCompany()
-  },[])
+  //   }
+  //   const getCompany = async () => {
+
+  //     try {
+  //       const company = await backend.organizations(account);
+  //       if(company.name!="") {
+  //         setIsRegistered(true);
+  //         // setIsUser(true);
+  //         console.log(company)
+
+          
+  //       }
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+
+  //   }
+  //   getUser()
+  //   getCompany()
+  // },[])
 
   const [userModal,setUserModal] = useState(false)
   const [companyModal,setCompanyModal] = useState(false)

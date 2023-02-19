@@ -5,6 +5,11 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useState } from "react";
+import { Web3Storage } from "web3.storage";
+const client = new Web3Storage({
+  token:
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweEE1NzBCZjU0Rjc4Zjg0RWE4MjVEODljYTU5NTlERGU2MWQyM2NEM0MiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NzY3NTMwNzM4NDUsIm5hbWUiOiJwYXJpbCJ9.gHSD5s8cE7PVFt3SNzYg72P8ru3_Zx6UDcRYrEp-rCc",
+});
 
 const UserModal = ({ userModal, setUserModal, backend }) => {
   const [activityDetails,setActivityDetails] = useState({})
@@ -15,11 +20,25 @@ const UserModal = ({ userModal, setUserModal, backend }) => {
   }
 
   const submitForm =  async () => {
-    console.log(backend)
-    // string memory _title, string[] memory _fileHashes, string memory _description, uint8 _category
-    const activity = await backend.createActivity(activityDetails.title, ["yes", "no"], activityDetails.description, activityDetails.creditType);
+    let rootCid;
+    const getCid =async ()  =>{
+      const fileInput = document.getElementById('doc')
+      console.log(fileInput);
+      rootCid = await client.put(fileInput.files, {
+        name: 'doc',
+        maxRetries: 3,
+      });
+      console.log(rootCid)
+      console.log(backend)
+    const activity = await backend.createActivity(activityDetails.title, [rootCid], activityDetails.description, activityDetails.creditType);
     console.log(activity)
+  
+    }
+    getCid()
+    
   }
+  
+ 
   return (
     <>
       <Dialog
@@ -82,6 +101,11 @@ const UserModal = ({ userModal, setUserModal, backend }) => {
 
            </div>
            <div className="py-2">
+           <label for="formFileLg" class="form-label">Profile Picture</label>
+            <input multiple class="form-control form-control-lg w-100" id="doc" type="file"/>
+           </div>
+          
+           <div className="py-2">
            <FormControl  fullWidth variant="filled">
              <InputLabel id="demo-simple-select-label" >Which Credit Best defines your work?</InputLabel>
             <Select
@@ -120,9 +144,10 @@ const UserModal = ({ userModal, setUserModal, backend }) => {
             onClick={() => {
               // setUserModal(false);
               submitForm()
+              setUserModal(false);
               
             }}>
-            Subscribe
+            Submit
           </Button>
         </DialogActions>
       </Dialog>
