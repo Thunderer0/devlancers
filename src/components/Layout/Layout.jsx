@@ -63,18 +63,7 @@ function Layout(props) {
             </ListItemButton>
           </ListItem>
         ) : (
-          <ListItem>
-            <ListItemButton
-              className="rounded"
-              sx={{ backgroundColor: "var(--secondary)" }}
-              onClick={()=>{setCompanyModal(true)}}
-              >
-              <ListItemIcon>
-                <AddIcon />
-              </ListItemIcon>
-              <ListItemText primary={"Buy Credits"} />
-            </ListItemButton>
-          </ListItem>
+         <></>
         )}
       </div>
 
@@ -121,16 +110,7 @@ function Layout(props) {
             </ListItemButton>
           </ListItem>
         </Link>
-        <Link to="/companies">
-          <ListItem key="4" disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <GroupIcon />
-              </ListItemIcon>
-              <ListItemText primary={"Companies Aligned"} />
-            </ListItemButton>
-          </ListItem>
-        </Link>
+    
        
       </List>
       <List>
