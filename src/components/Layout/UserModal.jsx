@@ -6,12 +6,19 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useState } from "react";
 
-const UserModal = ({ userModal, setUserModal }) => {
+const UserModal = ({ userModal, setUserModal, backend }) => {
   const [activityDetails,setActivityDetails] = useState({})
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setActivityDetails(values => ({...values, [name]: value}))
+  }
+
+  const submitForm =  async () => {
+    console.log(backend)
+    // string memory _title, string[] memory _fileHashes, string memory _description, uint8 _category
+    const activity = await backend.createActivity(activityDetails.title, ["yes", "no"], activityDetails.description, activityDetails.creditType);
+    console.log(activity)
   }
   return (
     <>
@@ -85,12 +92,12 @@ const UserModal = ({ userModal, setUserModal }) => {
                 value={activityDetails.creditType}
                 onChange={handleChange}
             >
-                <MenuItem value={1}>Green Credits</MenuItem>
-                <MenuItem value={2}>Blue Credits</MenuItem>
-                <MenuItem value={3}>Hunger Credits</MenuItem>
+                <MenuItem value={0}>Green Credits</MenuItem>
+                <MenuItem value={1}>Blue Credits</MenuItem>
+                <MenuItem value={2}>Edu Credits</MenuItem>
+                <MenuItem value={3}>Health Credits</MenuItem>
                 <MenuItem value={4}>Pink Credits</MenuItem>
-                <MenuItem value={5}>Edu Credits</MenuItem>
-                <MenuItem value={6}>Health Credits</MenuItem>
+                <MenuItem value={5}>Hunger Credits</MenuItem>
 
 
             </Select>
@@ -111,7 +118,9 @@ const UserModal = ({ userModal, setUserModal }) => {
           </Button>
           <Button
             onClick={() => {
-              setUserModal(false);
+              // setUserModal(false);
+              submitForm()
+              
             }}>
             Subscribe
           </Button>

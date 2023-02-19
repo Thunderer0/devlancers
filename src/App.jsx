@@ -97,16 +97,16 @@ function App() {
               <Route
                   path='/'
                   element={
-                   <Registration backend={backend} account={account}/>
+                   <Registration  setIsRegistered = {setIsRegistered} backend={backend} account={account} setIsUser={setIsUser}/>
                   }
                 />
               
             </>:<>
-            <Route path="/" element={<Layout login={login} isUser={isUser}/>}>
+            <Route path="/" element={<Layout login={login} isUser={isUser} backend={backend}/>}>
                 <Route
                   index
                   element={
-                    <Dashboard isUser={isUser}/>
+                    <Dashboard isUser={isUser} account={account} backend={backend}/>
                   }
                 />
                 <Route
@@ -118,7 +118,7 @@ function App() {
                  <Route
                   path='/activities'
                   element={
-                    <Activities/>
+                    <Activities backend={backend} isUser={isUser}/>
                   }
                 />
                 

@@ -99,6 +99,16 @@ function Layout(props) {
             </ListItemButton>
           </ListItem>
         </Link>
+        <Link to="/activities">
+          <ListItem key="8" disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <ReceiptLongIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Social Activities"} />
+            </ListItemButton>
+          </ListItem>
+        </Link>
         {/* <Divider /> */}
         <Link to="/top">
           <ListItem key="3" disablePadding>
@@ -217,8 +227,8 @@ function Layout(props) {
         <Toolbar />
         <Outlet />
       </Box>
-    <UserModal userModal={userModal} setUserModal={setUserModal}/>
-    <CompanyModal companyModal={companyModal} setCompanyModal={setCompanyModal}/>
+    <UserModal userModal={userModal} setUserModal={setUserModal} backend={props.backend}/>
+    <CompanyModal companyModal={companyModal} setCompanyModal={setCompanyModal} backend={props.backend}/>
     </Box>
   );
 }

@@ -6,18 +6,43 @@ import {ethers } from 'ethers';
 
 
 
-const Registration = ({backend, account}) =>{
+const Registration = ({backend, account, setIsRegistered, setIsUser}) =>{
+  
   useEffect( ()=>{
-    const fun = async () => {
-      const user = await backend.getUser(account)
-      // const user1 = await backend.users(account)
-      console.log(user)
-      // console.log(user1)
+    const getUser = async () => {
+
+      try {
+        const user = await backend.users(account);
+        if(user.name!="") {
+          setIsRegistered(true);
+          setIsUser(true);
+          console.log(user)
+
+          
+        }
+      } catch (error) {
+        console.log(error)
+      }
 
     }
-    
-    fun()
-    // setIsRegistered(true)
+    const getCompany = async () => {
+
+      try {
+        const company = await backend.organizations(account);
+        if(company.name!="") {
+          setIsRegistered(true);
+          // setIsUser(true);
+          console.log(company)
+
+          
+        }
+      } catch (error) {
+        console.log(error)
+      }
+
+    }
+    getUser()
+    getCompany()
   },[])
 
   const [userModal,setUserModal] = useState(false)
@@ -38,6 +63,16 @@ const Registration = ({backend, account}) =>{
 
     const res =await backend.createUser(userDetails.name,userDetails.email,userDetails.phone,userDetails.description)
     console.log(res)
+    setIsRegistered(true);
+    setIsUser(true);
+  }
+
+  const submitFormCompany =  async () => {
+
+    const res =await backend.createOrganization(companyDetails.name,companyDetails.email,companyDetails.phone)
+    console.log(res)
+    setIsRegistered(true);
+    // setIsUser
   }
     return(
 
@@ -245,7 +280,7 @@ const Registration = ({backend, account}) =>{
             Cancel
           </Button>
           <Button
-            onClick={submitFormUser}>
+            onClick={submitFormCompany}>
             Create
           </Button>
         </DialogActions>
