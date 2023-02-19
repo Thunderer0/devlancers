@@ -6,7 +6,7 @@ import { Box } from "@mui/system";
 import {ethers} from 'ethers';
 import CreditFi from '../.././artifacts/contracts/CreditFi.sol/CreditFi.json'
 
-const CREDITFI_ADDRESS = "0x56Fd5C5f08F7E1a93C364a0D30Dc4dE78b6A882a";
+const CREDITFI_ADDRESS = "0xAE8590d1bFE5b7Ad66a5569C653B1D93b4042E2E";
 let user;
 
 const Home = ({setAccount,setLogin,setProvider,setBackend,isRegistered,setIsRegistered}) => {
@@ -32,6 +32,7 @@ const Home = ({setAccount,setLogin,setProvider,setBackend,isRegistered,setIsRegi
   
     // console.log(backend.createUser)
     setBackend(backend)
+    console.log(backend)
     // console.log(backend)
     // const address =await backend.signer.getAddress()
     // console.log(address);

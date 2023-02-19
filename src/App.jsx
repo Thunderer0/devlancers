@@ -22,9 +22,9 @@ function App() {
   const [account, setAccount ] = useState(null) 
   const [provider, setProvider] = useState(null)
   const [backend, setBackend] = useState(null)
-  const [login,setLogin] = useState(true)
-  const [isUser,setIsUser] = useState(true)
-  const [isRegistered,setIsRegistered] = useState(true)
+  const [login,setLogin] = useState(false)
+  const [isUser,setIsUser] = useState(false)
+  const [isRegistered,setIsRegistered] = useState(false)
   const theme = createTheme({
     palette: {
       mode: 'dark',
@@ -102,7 +102,7 @@ function App() {
                 />
               
             </>:<>
-            <Route path="/" element={<Layout login={login} isUser={isUser}/>}>
+            <Route path="/" element={<Layout login={login} isUser={isUser} backend={backend}/>}>
                 <Route
                   index
                   element={
@@ -118,7 +118,7 @@ function App() {
                  <Route
                   path='/activities'
                   element={
-                    <Activities/>
+                    <Activities backend={backend} />
                   }
                 />
                 

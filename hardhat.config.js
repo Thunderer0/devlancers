@@ -16,6 +16,9 @@ require("@nomiclabs/hardhat-etherscan");
 
 module.exports = {
   defaultNetwork: "mumbai",
+  paths: {
+        artifacts: "./src/artifacts",
+    },
   networks: {
     hardhat: {  
     },

@@ -16,6 +16,7 @@ const Registration = ({backend, account, setIsRegistered, setIsUser}) =>{
         if(user.name!="") {
           setIsRegistered(true);
           setIsUser(true);
+          console.log(user)
 
           
         }
