@@ -6,7 +6,6 @@ import { Box } from "@mui/system";
 import {ethers} from 'ethers';
 import CreditFi from '../.././artifacts/contracts/CreditFi.sol/CreditFi.json'
 
-
 let user;
 
 const Home = ({setAccount,setLogin,setProvider,setBackend,isRegistered,setIsRegistered}) => {
