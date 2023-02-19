@@ -8,6 +8,7 @@ import CreditFi from '../.././artifacts/contracts/CreditFi.sol/CreditFi.json'
 import PixRoundedIcon from "@mui/icons-material/PixRounded"
 import banner from '../../images/6583.jpg'
 import bgImg from '../../images/cleaning_crew_of_plastic_in_the_beach.jpg'
+import bg from '../../images/1.png'
 
 
 let user;
@@ -49,10 +50,10 @@ const Home = ({setAccount,setLogin,setProvider,setBackend,isRegistered,setIsRegi
       <div className="container mt-5 pt-5 w-100 d-flex  align-items-center " style={{minHeight:'85vh',backgroundImage:bgImg}}>
         <div className="w-50">
         <h1 style={{ fontSize:'60px'}}>Invest in Future, </h1>
-        <h1 style={{ fontSize:'60px'}}>let it be time or money. </h1>
+        <h1 style={{ fontSize:'60px'}}>Let it be time or money. </h1>
         </div>
         <div className="img">
-            <img src={banner} alt="" style={{width:'600px',height:'400px'}}/>
+            <img src={bg} alt="" style={{width:'600px',height:'600px'}}/>
         </div>
       
       </div>
