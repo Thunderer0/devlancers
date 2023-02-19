@@ -9,8 +9,7 @@ import {ethers } from 'ethers';
 const Registration = ({backend, account}) =>{
   useEffect( ()=>{
     const fun = async () => {
-      const address = backend.signer.getAddress()
-      const user = await backend.getUser(address)
+      const user = await backend.getUser(account)
       // const user1 = await backend.users(account)
       console.log(user)
       // console.log(user1)
