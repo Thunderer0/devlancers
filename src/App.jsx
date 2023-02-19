@@ -10,6 +10,7 @@ import Layout from "./components/Layout/Layout";
 import Credits from "./components/Credits/Credits";
 import Activities from "./components/Activities/Activities";
 import Registration from "./components/Registration/Registration";
+import Top from "./components/Top/Top";
 
 import CreditFi from "./artifacts/contracts/CreditFi.sol/CreditFi.json";
 
@@ -107,8 +108,8 @@ function App() {
                 {!isRegistered ? (
                   <>
                     <Route
-                      // path="/"
-                      path="/register"
+                      path="/"
+                      // path="/register"
                       element={
                         <Registration
                           setIsRegistered={setIsRegistered}
@@ -143,7 +144,7 @@ function App() {
                         }
                       />
                       <Route path="/credits" element={<Credits />} />
-                      {/* confusion1 */}
+                      <Route path="/top" element={<Top backend={backend} account={account} />} />
                       <Route
                         path="/activities"
                         element={
