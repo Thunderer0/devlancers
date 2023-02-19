@@ -28,6 +28,7 @@ import AddIcon from "@mui/icons-material/Add";
 import UserModal from "./UserModal";
 import companyModal from './CompanyModal';
 import CompanyModal from "./CompanyModal";
+import PixRoundedIcon from "@mui/icons-material/PixRounded"
 const drawerWidth = 240;
 
 function Layout(props) {
@@ -173,9 +174,9 @@ function Layout(props) {
             sx={{ mr: 2, display: { sm: "none" } }}>
             <MenuIcon />
           </IconButton>
-          <PaidIcon sx={{ m: 1 }} fontSize="large" />
+          <PixRoundedIcon sx={{ m: 1 }} fontSize="large" />
           <Typography variant="h6" component="div">
-            Devlancers
+             Xchange
           </Typography>
         </Toolbar>
       </AppBar>

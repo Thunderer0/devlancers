@@ -24,13 +24,15 @@ const UserModal = ({ userModal, setUserModal, backend }) => {
     const getCid =async ()  =>{
       const fileInput = document.getElementById('doc')
       console.log(fileInput);
+      console.log(fileInput.files[0].name);
+      let fileName = fileInput.files[0].name;
       rootCid = await client.put(fileInput.files, {
         name: 'doc',
         maxRetries: 3,
       });
       console.log(rootCid)
       console.log(backend)
-    const activity = await backend.createActivity(activityDetails.title, [rootCid], activityDetails.description, activityDetails.creditType);
+    const activity = await backend.createActivity(activityDetails.title, [rootCid,fileName], activityDetails.description, activityDetails.creditType);
     console.log(activity)
   
     }
@@ -93,7 +95,6 @@ const UserModal = ({ userModal, setUserModal, backend }) => {
                 
             >
                 <MenuItem value={1}>Pictures</MenuItem>
-                <MenuItem value={2}>Video</MenuItem>
                 <MenuItem value={3}>PDF</MenuItem>
             </Select>
              </FormControl>

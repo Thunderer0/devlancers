@@ -37,7 +37,7 @@ const Dashboard = ({isUser, account, backend}) =>{
             <div className="container d-flex top-dashboard">
             <div className="profile-details rounded p-3 py-5">
               <div className="right px-2">
-                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80" className="profile-container "/>
+                <img src="https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg?w=2000" className="profile-container "/>
 
                 <div className="name text-center py-2">
                     <h6>{userDetails.name}</h6>
@@ -146,7 +146,7 @@ const Dashboard = ({isUser, account, backend}) =>{
         <div className="container d-flex top-dashboard">
             <div className="profile-details rounded p-3 py-5">
               <div className="right px-2">
-                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80" className="profile-container "/>
+                <img src="https://as2.ftcdn.net/v2/jpg/02/60/12/11/1000_F_260121137_3To0EdxvWR3f5IqiwqkmGvHN9MSOM4HG.jpg" className="profile-container "/>
 
                 <div className="name text-center py-2">
                     <h6>{companyDetails.name}</h6>

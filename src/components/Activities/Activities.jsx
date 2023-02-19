@@ -64,7 +64,7 @@ const Activities = ({ backend,isUser}) => {
   return (
     <>
       <div className="activities">
-        <h2>Good things</h2>
+        <h2>Social Activities</h2>
         <Box sx={{ width: "100%" }}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <Tabs
@@ -92,23 +92,34 @@ const Activities = ({ backend,isUser}) => {
                 </div>
                 <div className="matter p-3">
                     <h5>{e.title}</h5>
-                    <p>{e.category}</p>
+                   
+                    <p className="tsecondary">
+                      Credit Type: &nbsp;&nbsp;
+                      {e.category==0?<>Green Credits</>:<></>}
+                      {e.category==1?<>Blue Credits</>:<></>}
+                    {e.category==2?<>Edu Credits</>:<></>}
+                    {e.category==3?<>Health Credits</>:<></>}
+                    {e.category==4?<>Pink Credits</>:<></>}
+                    {e.category==5?<>Hunger Credits</>:<></>}
+                    </p>
+                   
+                    
                     <div id="carouselExampleControls" class="carousel slide bgprimary m-5" data-bs-ride="carousel">
                     <div class="carousel-inner ">
                         <div class="carousel-item active">
                             <div className="imageContainer d-flex justify-content-center ">
-                            <img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="d-block w-50" alt="..." style={{objectFit:'cover'}}/>
+                            <img src={"https://"+ e.fileHashes[0] + ".ipfs.w3s.link/"+e.fileHashes[1]} class="d-block w-50" alt="..." style={{objectFit:'cover'}}/>
                             </div>
                        
                         </div>
                         <div class="carousel-item">
                         <div className="imageContainer d-flex justify-content-center ">
-                            <img src="https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014__340.jpg" class="d-block w-50" alt="..." style={{objectFit:'cover'}}/>
+                            <img src={"https://"+ e.fileHashes[0] + ".ipfs.w3s.link/"+e.fileHashes[1]} class="d-block w-50" alt="..." style={{objectFit:'cover'}}/>
                             </div>
                         </div>
                         <div class="carousel-item">
                         <div className="imageContainer d-flex justify-content-center ">
-                            <img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="d-block w-50" alt="..." style={{objectFit:'cover'}}/>
+                            <img src={"https://"+ e.fileHashes[0] + ".ipfs.w3s.link/"+e.fileHashes[1]} class="d-block w-50" alt="..." style={{objectFit:'cover'}}/>
                             </div>
                         </div>
                     </div>
@@ -122,7 +133,6 @@ const Activities = ({ backend,isUser}) => {
                     </button>
                     </div>
                     <p className="tsecondary px-5 py-1">{e.description}</p>
-                    <p>{e.upvotes.toNumber()}</p>
                     <div className="votes px-3 d-flex justify-content-end">
                     <ButtonGroup variant="contained" aria-label="outlined button group">
                             <Button startIcon={<ThumbUpIcon/>} onClick={() => {setOpen(true);setId(e.activityId)}}>Upvote</Button>
@@ -155,25 +165,32 @@ const Activities = ({ backend,isUser}) => {
                 </div>
                 <div className="matter p-3">
                     <h5>{e.title}</h5>
-                    <p>{e.category}</p>
-                    <p>{e.upvotes.toNumber()}</p>
+                    <p className="tsecondary">
+                      Credit Type: &nbsp;&nbsp;
+                      {e.category==0?<>Green Credits</>:<></>}
+                      {e.category==1?<>Blue Credits</>:<></>}
+                    {e.category==2?<>Edu Credits</>:<></>}
+                    {e.category==3?<>Health Credits</>:<></>}
+                    {e.category==4?<>Pink Credits</>:<></>}
+                    {e.category==5?<>Hunger Credits</>:<></>}
+                    </p>
 
                     <div id="carouselExampleControls" class="carousel slide bgprimary m-5" data-bs-ride="carousel">
                     <div class="carousel-inner ">
                         <div class="carousel-item active">
                             <div className="imageContainer d-flex justify-content-center ">
-                            <img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="d-block w-50" alt="..." style={{objectFit:'cover'}}/>
+                            <img src={"https://"+ e.fileHashes[0] + ".ipfs.w3s.link/"+e.fileHashes[1]} class="d-block w-50" alt="..." style={{objectFit:'cover'}}/>
                             </div>
                        
                         </div>
                         <div class="carousel-item">
                         <div className="imageContainer d-flex justify-content-center ">
-                            <img src="https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014__340.jpg" class="d-block w-50" alt="..." style={{objectFit:'cover'}}/>
+                            <img src={"https://"+ e.fileHashes[0] + ".ipfs.w3s.link/"+e.fileHashes[1]} class="d-block w-50" alt="..." style={{objectFit:'cover'}}/>
                             </div>
                         </div>
                         <div class="carousel-item">
                         <div className="imageContainer d-flex justify-content-center ">
-                            <img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="d-block w-50" alt="..." style={{objectFit:'cover'}}/>
+                            <img src={"https://"+ e.fileHashes[0] + ".ipfs.w3s.link/"+e.fileHashes[1]} class="d-block w-50" alt="..." style={{objectFit:'cover'}}/>
                             </div>
                         </div>
                     </div>
@@ -210,7 +227,7 @@ const Activities = ({ backend,isUser}) => {
 
 
       <Dialog open={open} onClose={()=>{setOpen(false)}}>
-        <DialogTitle>Subscribe</DialogTitle>
+        <DialogTitle>Vote a valid credit for their work</DialogTitle>
         <DialogContent>
           <DialogContentText>
             How much Credits should be Given for their work
@@ -230,7 +247,7 @@ const Activities = ({ backend,isUser}) => {
         </DialogContent>
         <DialogActions>
           <Button onClick={()=>{setOpen(false)}}>Cancel</Button>
-          <Button onClick={()=>{upVote(id)}}>Submit</Button>
+          <Button onClick={()=>{upVote(id); setOpen(false)}}>Submit</Button>
         </DialogActions>
       </Dialog>
 
