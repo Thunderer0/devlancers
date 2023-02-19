@@ -4,12 +4,12 @@ This website is a platform that allows individuals to participate in social acti
 
 For running this in your local machine follow following rules
 
-For **Frontend
+For **Frontend**
 ```shell
 npm install
 npm run dev
 ```
-For Blockchain
+For **Blockchain**
 ```shell
 npx hardhat compile
 npx hardhat run scripts/deploy.js
